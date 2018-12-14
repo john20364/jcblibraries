@@ -45,10 +45,16 @@ jcbCreateNS("jcb.lib").GameEngine = function (nScreenWidth, nScreenHeight) {
     this.fillRect = function (x, y, w, h, color) {
         this.context.fillStyle = color;
         this.context.fillRect(x+0.5, y+0.5, w, h);
-        this.context.strokeStyle = color;
-        this.context.strokeWidth = 1;
-        this.context.strokeRect(x+0.5, y+0.5, w, h);
     }
+    
+    this.drawLine = function (x1, y1, x2, y2, color) {
+        this.context.beginPath();
+        this.context.strokeStyle = color;
+        this.context.moveTo(x1+0.5, y1+0.5);
+        this.context.lineTo(x2+0.5, y2+0.5);
+        this.context.stroke();
+    }
+    
 
     // initialization
     this.init = function () {
